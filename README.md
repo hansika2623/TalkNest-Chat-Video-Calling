@@ -1,93 +1,189 @@
 # TalkNest
-Talknest is a production-ready language exchange platform that combines real-time chat, video calling (one-on-one and group), screen sharing, reactions, typing indicators, image uploads, and video call recording. It includes 32 customizable UI themes and a robust friend and recommendation system to help users connect and practice languages interactively.
 
-Features
+![Node.js](https://img.shields.io/badge/Node.js-18.x-blue?style=flat-square)  
+![React](https://img.shields.io/badge/React-18.x-blue?style=flat-square)  
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-success?style=flat-square)  
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-Authentication & Security
+---
 
-JSON Web Tokens (JWT) authentication
+## 🌟 Overview
 
-Secure cookie-based session management
+**TalkNest** is a **full-featured language exchange platform** that combines:
 
-Protected routes for authenticated users
+- **Real-time messaging** (threads, reactions, typing indicators, image uploads)  
+- **Video calls (1:1 & group)** with screen sharing, reactions & recording  
+- **Friend system** (recommendations, requests, onboarding)  
+- **32 unique UI themes**  
 
-Real-time Chat & Messaging
+Perfect for language learners to **practice speaking & chatting for free**.
 
-Instant messaging with online status
+---
 
-Reactions, typing indicators, threads
+## ✨ Features
 
-Image uploads and notifications
+- **Secure Authentication** – JWT + cookies  
+- **Realtime Chat & Video Calls** – Powered by Stream API  
+- **Custom Themes** – Persistent across sessions  
+- **Friend Management** – Send, accept, reject requests  
+- **Call Recording & Screen Sharing** – Integrated seamlessly  
 
-Video Calls
+---
 
-One-on-one & group video calls
+## 🛠️ Tech Stack
 
-Screen sharing, reactions, and call recording
+- **Frontend:** React.js (Vite), Tailwind CSS, DaisyUI, Lucide-react  
+- **Backend:** Node.js, Express, Mongoose  
+- **Database:** MongoDB Atlas  
+- **Real-time:** Stream Chat & Video SDK  
+- **State Management:** TanStack Query, Zustand  
+- **Deployment:** Render  
 
-Seamless chat-video integration
+---
 
-User Management
+## 📂 Project Structure
 
-Friend requests (send, accept, reject)
-
-Friend recommendations based on preferences
-
-Onboarding flow with language preferences
-
-Themes & Personalization
-
-32 different UI themes
-
-Persistent theme selection with localStorage
-
-Technology Highlights
-
-Backend: Node.js, Express, MongoDB
-
-Frontend: React.js (Vite) with Tailwind CSS & DaisyUI
-
-Real-time: Stream API for chat & calls
-
-State Management: Zustand & TanStack Query
-
-Tech Stack
-
-Frontend: React.js, Tailwind CSS, DaisyUI, Lucide-react
-
-Backend: Node.js, Express.js, Mongoose
-
-Database: MongoDB Atlas
-
-Real-time Communication: Stream Chat & Video SDK
-
-Authentication: JWT (JSON Web Token)
-
-State Management: TanStack Query, Zustand
-
-Deployment: Render
-
-Project Structure
+```bash
 TalkNest/
-│
 ├── backend/
 │   ├── src/
-│   │   ├── routes/        # Routes (auth, user, chat)
-│   │   ├── controllers/   # Controllers for handling routes
-│   │   ├── middlewares/   # Authentication middleware
-│   │   ├── models/        # MongoDB models (User, FriendRequest)
-│   │   ├── lib/           # Stream API integration
-│   │   └── server.js      # Main server file
+│   │   ├── routes/         # API routes
+│   │   ├── controllers/    # Route handlers
+│   │   ├── middlewares/    # JWT authentication
+│   │   ├── models/         # User & FriendRequest schemas
+│   │   ├── lib/            # Stream API integration
+│   │   └── server.js       # Entry point
 │   └── package.json
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── pages/         # Login, Signup, Onboarding, Chat, VideoCall
-│   │   ├── components/    # Navbar, Sidebar, Layout, ThemeSelector
-│   │   ├── hooks/         # Custom hooks (useAuth, useLogout, etc.)
-│   │   ├── lib/           # Axios config & helpers
-│   │   ├── constants/     # Themes, languages
+│   │   ├── pages/          # Auth, Chat, Call, Onboarding
+│   │   ├── components/     # Navbar, Sidebar, ThemeSelector
+│   │   ├── hooks/          # useAuth, useLogout, useTheme
+│   │   ├── lib/            # Axios config
 │   │   └── App.jsx
 │   └── package.json
 │
-└── package.json           # Root configuration
+└── package.json            # Root configuration
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/TalkNest.git
+cd TalkNest
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
+Create `.env`:
+```
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/talknest_db
+JWT_SECRET=your_jwt_secret
+STREAM_API_KEY=your_stream_api_key
+STREAM_API_SECRET=your_stream_api_secret
+NODE_ENV=development
+```
+Run:
+```bash
+npm run dev
+```
+
+### 3. Frontend Setup
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
+Create `.env`:
+```
+VITE_STREAM_API_KEY=your_stream_api_key
+```
+
+---
+
+## 🏗️ Build & Deployment
+
+### Build
+```bash
+npm run build
+```
+This will:
+- Install dependencies for backend & frontend
+- Build the frontend into a production `dist/`
+- Prepare the application for deployment
+
+### Start (Production)
+```bash
+npm run start
+```
+Ensure:
+- `NODE_ENV=production`
+- Correct **MongoDB**, **Stream API**, and **JWT** credentials are set
+
+---
+
+## 📖 API Routes
+
+### Auth
+- `POST /api/auth/signup` – Create user & sync with Stream  
+- `POST /api/auth/login` – Issue JWT & authenticate  
+- `POST /api/auth/logout` – Logout  
+
+### User
+- `GET /api/users/recommended` – Recommended friends  
+- `POST /api/users/friend-request` – Send friend request  
+- `POST /api/users/friend-request/accept` – Accept friend request  
+- `GET /api/users/friends` – List friends  
+
+### Chat
+- `GET /api/chat/token` – Generate Stream token  
+
+---
+
+## 📸 Screenshots
+
+> *(Replace with actual screenshots)*
+
+- **Login & Signup**  
+  ![Signup Screenshot](https://via.placeholder.com/800x400?text=Signup+Page)
+
+- **Chat & Video Call**  
+  ![Chat Screenshot](https://via.placeholder.com/800x400?text=Chat+Interface)
+
+- **Theme Selector**  
+  ![Themes Screenshot](https://via.placeholder.com/800x400?text=Theme+Selector)
+
+---
+
+## 📌 Key Learnings
+
+- Building **Node.js + Express** backends  
+- Implementing **JWT authentication**  
+- Creating **protected routes & middleware**  
+- Using **TanStack Query for state management**  
+- Building **real-time chat & video call apps with Stream**  
+
+---
+
+## 🧑‍💻 MongoDB Credentials (For Testing)
+
+```
+Username: hansikamittal697
+Password: X0UprQeVybVlwuqe
+Connection: mongodb+srv://hansikamittal697:X0UprQeVybVlwuqe@cluster0.k1spljy.mongodb.net/talknest_db
+```
+
+---
+
+## 📜 License
+
+Licensed under the [MIT License](LICENSE).
+
