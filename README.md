@@ -1,5 +1,5 @@
 # TalkNest
-# Talknest is a production-ready language exchange platform that combines real-time chat, video calling (one-on-one and group), screen sharing, reactions, typing indicators, image uploads, and video call recording. It includes 32 customizable UI themes and a robust friend and recommendation system to help users connect and practice languages interactively.
+Talknest is a production-ready language exchange platform that combines real-time chat, video calling (one-on-one and group), screen sharing, reactions, typing indicators, image uploads, and video call recording. It includes 32 customizable UI themes and a robust friend and recommendation system to help users connect and practice languages interactively.
 
 Features
 
